@@ -12,7 +12,7 @@ const render = require("./lib/generateHTML");
 const Employee = require("./lib/Employee");
 const teamArr = [];
 
-function employeeQuestions(){
+function employeeQuestions(answers){
   inquirer.prompt([
       {
         type: "input",
@@ -77,7 +77,7 @@ function managerQuestions(answers) {
     });
 }
 
-function engineerQuestions(employeeQuestions) {
+function engineerQuestions(answers) {
   inquirer
     .prompt([
       {
@@ -108,7 +108,7 @@ function engineerQuestions(employeeQuestions) {
     });
 }
 
-function internQuestions(employeeQuestions) {
+function internQuestions(answers) {
   inquirer
     .prompt([
       {
@@ -143,7 +143,9 @@ function buildTeam() {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR);
   }
-  fs.writeFile(outputPath, render(teamArr));
+  fs.writeFile(outputPath, render(teamArr), (err) =>  {
+    if (err) throw err;
+  });
 }
 
 employeeQuestions();
