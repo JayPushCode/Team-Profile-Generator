@@ -1,3 +1,4 @@
+// Requirements for Applicaitons
 const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
@@ -5,13 +6,17 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+// Path to move output to 'output' folder to not overwrite any html
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
+
+// render imports, and team array construction
 
 const render = require("./lib/generateHTML");
 const Employee = require("./lib/Employee");
 const teamArr = [];
 
+// Employee questions
 function employeeQuestions(answers){
   inquirer.prompt([
       {
@@ -47,6 +52,8 @@ function employeeQuestions(answers){
     });
 }
 
+// Additional questions for managers
+
 function managerQuestions(answers) {
   inquirer
     .prompt([
@@ -77,7 +84,7 @@ function managerQuestions(answers) {
       }
     });
 }
-
+// Additional questions for engineers
 function engineerQuestions(answers) {
   inquirer
     .prompt([
@@ -108,7 +115,7 @@ function engineerQuestions(answers) {
       }
     });
 }
-
+// Additional questions for interns
 function internQuestions(answers) {
   inquirer
     .prompt([
@@ -139,6 +146,7 @@ function internQuestions(answers) {
       }
     });
 }
+// Function to build the team after user is finished adding people to the array
 
 function buildTeam() {
   if (!fs.existsSync(OUTPUT_DIR)) {
