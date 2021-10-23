@@ -1,39 +1,22 @@
-<div class="row row-primary row-primary intern">
-    <div class="col-md-3 col-name-intern">
-        <h2>{{ name }}</h2>
-    </div>
-    <div class="col-md-1 intern-gap"></div>
-    <div class="col-md-2 col-intern">
-        <div class="row row-header">
-            <h3>Role</h3>
+<div class="card-container">
+    <div class="card-header">
+        <div class="card-title name">
+            <h2>{{ name }}</h2>
         </div>
-        <div class="row-content-intern">
-            <p><i class="fas fa-headphones"></i>{{ role }}</p>
+            <div class="row-content-intern">
+                <h4><i class="fas fa-mug-hot"></i> {{ role }}</h4>
         </div>
     </div>
-    <div class="col-md-2 col-intern">
-        <div class="row row-header">
-            <h3>ID</h3>
-        </div>
-        <div class="row-content-intern">
-            <p>{{ id }}</p>
+    <div class="idnumber">
+            <p>ID# {{ id }}</p>
+    </div>
+    <div class="email">
+        <div class="emaillink">
+            <p><a class="intern-email" href="mailto:{{ email }}">Email: {{ email }}</a></p>
         </div>
     </div>
-    <div class="col-md-2 col-intern">
-        <div class="row row-header">
-            <h3>E-Mail</h3>
-        </div>
-        <div class="row-content-intern">
-            <p><a class="intern-email" href="mailto:{{ email }}">{{ email }}</a></p>
+        <div class="extracontent">
+            <p>OFFICE: {{ officeNumber }}</p>
         </div>
     </div>
-    <div class="col-md-2 col-intern">
-        <div class="row row-header">
-            <h3>Office Number</h3>
-        </div>
-        <div class="row-content-intern">
-            <p>{{ officeNumber }}</p>
-        </div>
-    </div>
-
 </div>

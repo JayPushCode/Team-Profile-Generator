@@ -61,15 +61,16 @@ function managerQuestions(answers) {
         name: "newMember",
       },
     ])
-    .then(function (answers) {
+    .then(function (data) {
+      console.log(answers)
       const newManager = new Manager(
         answers.name,
         answers.id,
         answers.email,
-        answers.officeNumber,
+        data.officeNumber,
       );
       teamArr.push(newManager);
-      if (answers.newMember === true) {
+      if (data.newMember === true) {
         employeeQuestions();
       } else {
         buildTeam();
@@ -91,15 +92,15 @@ function engineerQuestions(answers) {
         name: "newMember",
       },
     ])
-    .then(function (answers) {
+    .then(function (data) {
       const newEngineer = new Engineer(
         answers.name,
         answers.id,
         answers.email,
-        answers.github
+        data.github
       );
       teamArr.push(newEngineer);
-      if (answers.newMember === true) {
+      if (data.newMember === true) {
         employeeQuestions();
       } else {
         buildTeam();
@@ -122,15 +123,15 @@ function internQuestions(answers) {
         name: "newMember",
       },
     ])
-    .then(function (answers) {
+    .then(function (data) {
       const newIntern = new Intern(
         answers.name,
         answers.id,
         answers.email,
-        answers.school
+        data.school
       );
       teamArr.push(newIntern);
-      if (answers.newMember === true) {
+      if (data.newMember === true) {
         employeeQuestions();
       } else {
         buildTeam();
